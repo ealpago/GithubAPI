@@ -7,23 +7,21 @@
 
 import UIKit
 
-class TabbarViewController: UIViewController {
-
+class TabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let vc1 = UINavigationController(rootViewController: SearchViewController())
+        let vc2 = UINavigationController(rootViewController: SearchHistoryViewController())
+
+        vc1.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        vc2.tabBarItem.image = UIImage(systemName: "clock.fill")
+
+        vc1.title = "Home"
+        vc2.title = "Coming Soon"
+
+        tabBar.tintColor = .label
+
+        setViewControllers([vc1, vc2], animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

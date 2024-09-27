@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D18917322CA5BDB2009C399C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917312CA5BDB2009C399C /* AppDelegate.swift */; };
 		D18917342CA5BDB2009C399C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917332CA5BDB2009C399C /* SceneDelegate.swift */; };
-		D18917362CA5BDB2009C399C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917352CA5BDB2009C399C /* ViewController.swift */; };
-		D18917392CA5BDB2009C399C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18917372CA5BDB2009C399C /* Main.storyboard */; };
 		D189173C2CA5BDB2009C399C /* GithubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D189173A2CA5BDB2009C399C /* GithubAPI.xcdatamodeld */; };
 		D189173E2CA5BDB5009C399C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D189173D2CA5BDB5009C399C /* Assets.xcassets */; };
 		D18917412CA5BDB5009C399C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D189173F2CA5BDB5009C399C /* LaunchScreen.storyboard */; };
@@ -54,8 +52,6 @@
 		D189172E2CA5BDB2009C399C /* GithubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18917312CA5BDB2009C399C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D18917332CA5BDB2009C399C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D18917352CA5BDB2009C399C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D18917382CA5BDB2009C399C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D189173B2CA5BDB2009C399C /* GithubAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubAPI.xcdatamodel; sourceTree = "<group>"; };
 		D189173D2CA5BDB5009C399C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D18917402CA5BDB5009C399C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,8 +132,6 @@
 				D18917662CA5BEE9009C399C /* Controllers */,
 				D189176E2CA5C12C009C399C /* Storyboards */,
 				D18917682CA5BF05009C399C /* Views */,
-				D18917352CA5BDB2009C399C /* ViewController.swift */,
-				D18917372CA5BDB2009C399C /* Main.storyboard */,
 				D189173D2CA5BDB5009C399C /* Assets.xcassets */,
 				D189173F2CA5BDB5009C399C /* LaunchScreen.storyboard */,
 				D18917422CA5BDB5009C399C /* Info.plist */,
@@ -166,10 +160,10 @@
 		D18917662CA5BEE9009C399C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D189176B2CA5C085009C399C /* ListingViewController.swift */,
-				D18917822CA6BD2A009C399C /* SearchViewController.swift */,
 				D18917842CA6BE22009C399C /* TabbarViewController.swift */,
+				D18917822CA6BD2A009C399C /* SearchViewController.swift */,
 				D18917862CA6BE3C009C399C /* SearchHistoryViewController.swift */,
+				D189176B2CA5C085009C399C /* ListingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -352,7 +346,6 @@
 				D18917712CA5C16E009C399C /* ListingViewController.storyboard in Resources */,
 				D18917412CA5BDB5009C399C /* LaunchScreen.storyboard in Resources */,
 				D189173E2CA5BDB5009C399C /* Assets.xcassets in Resources */,
-				D18917392CA5BDB2009C399C /* Main.storyboard in Resources */,
 				D189177F2CA5E77B009C399C /* RepoOwnerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +371,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18917362CA5BDB2009C399C /* ViewController.swift in Sources */,
 				D18917812CA5F72A009C399C /* Constants.swift in Sources */,
 				D18917322CA5BDB2009C399C /* AppDelegate.swift in Sources */,
 				D18917852CA6BE22009C399C /* TabbarViewController.swift in Sources */,
@@ -429,14 +421,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D18917372CA5BDB2009C399C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D18917382CA5BDB2009C399C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D189173F2CA5BDB5009C399C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -579,7 +563,6 @@
 				INFOPLIST_FILE = GithubAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -608,7 +591,6 @@
 				INFOPLIST_FILE = GithubAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
