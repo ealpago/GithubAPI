@@ -16,13 +16,36 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="User Name" translatesAutoresizingMaskIntoConstraints="NO" id="hqQ-Xv-tFH">
+                                <rect key="frame" x="16" y="71" width="361" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="muh-W7-H63"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-3p-H5y">
+                                <rect key="frame" x="16" y="139" width="361" height="679"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yqt-3p-H5y" secondAttribute="trailing" constant="16" id="6v0-uQ-rrm"/>
+                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MfT-xM-aDw"/>
+                            <constraint firstItem="hqQ-Xv-tFH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="T1h-5m-a1h"/>
+                            <constraint firstItem="hqQ-Xv-tFH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="YgD-27-1Dd"/>
+                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="top" secondItem="hqQ-Xv-tFH" secondAttribute="bottom" constant="12" id="bhp-kD-ZUi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Yqt-3p-H5y" secondAttribute="bottom" id="inw-py-oZP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hqQ-Xv-tFH" secondAttribute="trailing" constant="16" id="rOO-hR-RSM"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131" y="-27"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
