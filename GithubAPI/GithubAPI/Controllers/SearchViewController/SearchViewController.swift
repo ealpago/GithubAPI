@@ -9,8 +9,16 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet private weak var mainStackView: UIStackView!
+    @IBOutlet private weak var githubLogoImageView: UIImageView!
+    @IBOutlet private weak var userSearchBar: UISearchBar!
+    @IBOutlet private weak var searchButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white // Set background color to make sure it's visible
+    }
+
+    @IBAction private func searchButtonTapped(_ sender: UIButton) {
+       
     }
 }
