@@ -38,6 +38,7 @@
 		D1E17B182CA9963F00F228A9 /* RepoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E17B162CA9963F00F228A9 /* RepoCollectionViewCell.xib */; };
 		D1E17B1A2CA9CAE600F228A9 /* ListingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */; };
 		D1E17B1C2CA9CBD700F228A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */; };
+		D1E17B202CAA0EB100F228A9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B1F2CAA0EB100F228A9 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		D1E17B162CA9963F00F228A9 /* RepoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListingStoryboard.storyboard; sourceTree = "<group>"; };
 		D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D1E17B1F2CAA0EB100F228A9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			children = (
 				D18917792CA5E45A009C399C /* NetworkManager.swift */,
 				D1E17B112CA989D100F228A9 /* ReposStoreManager.swift */,
+				D1E17B1F2CAA0EB100F228A9 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				D1E17B122CA989D100F228A9 /* ReposStoreManager.swift in Sources */,
 				D18917772CA5E275009C399C /* License.swift in Sources */,
 				D1E17B052CA82A6900F228A9 /* SearchViewModel.swift in Sources */,
+				D1E17B202CAA0EB100F228A9 /* CoreDataManager.swift in Sources */,
 				D18917872CA6BE3C009C399C /* SearchHistoryViewController.swift in Sources */,
 				D189177A2CA5E45A009C399C /* NetworkManager.swift in Sources */,
 				D1E17B0D2CA8409F00F228A9 /* String+Extension.swift in Sources */,
