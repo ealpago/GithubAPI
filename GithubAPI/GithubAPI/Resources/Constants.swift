@@ -10,5 +10,5 @@ import Foundation
 struct APIConstants{
     static let shared = APIConstants()
 
-    let gıthubBaseURL = "https://api.github.com"
+    let githubBaseURL = "https://api.github.com/"
 }

@@ -15,13 +15,20 @@ public enum HTTPMethod: String {
 }
 
 public enum NetworkRouter {
+    case userRepos(user: String, page: Int)
 
     public var method: HTTPMethod {
-        switch self {}
+        switch self {
+        case .userRepos(user: let user, page: let page):
+            return .get
+        }
     }
 
     public var path: String {
-        switch self {}
+        switch self {
+        case .userRepos(user: let user, page: let page):
+            return APIConstants.shared.githubBaseURL + "users/\(user)/repos?type=owner&page=\(page)&per_page=10"
+        }
     }
 }
 
