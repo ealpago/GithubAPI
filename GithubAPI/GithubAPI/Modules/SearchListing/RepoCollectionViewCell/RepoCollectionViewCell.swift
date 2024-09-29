@@ -7,9 +7,15 @@
 
 import UIKit
 
-class RepoCollectionViewCell: UICollectionViewCell {
+final class RepoCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var repoNameLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+
+    func configure(with repoName: String) {
+         self.repoNameLabel.text = repoName
+     }
 }

@@ -86,14 +86,15 @@ extension ListingViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = repoCollectionView.dequeueReusableCell(withReuseIdentifier: RepoCollectionViewCell.identifier, for: indexPath) as? RepoCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(with: viewModel.cellForItem(at: indexPath.item))
         return cell
     }
 }
 
-extension ListingViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.bounds.width
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        return viewModel.collectionViewLayout(width: collectionViewWidth, minimumSpacing: flowLayout.minimumInteritemSpacing, columns: columns)
-    }
-}
+//extension ListingViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let collectionViewWidth = collectionView.bounds.width
+//        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+//        return viewModel.collectionViewLayout(width: collectionViewWidth, minimumSpacing: flowLayout.minimumInteritemSpacing, columns: columns)
+//    }
+//}

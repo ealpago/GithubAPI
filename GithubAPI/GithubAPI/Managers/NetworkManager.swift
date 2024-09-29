@@ -19,7 +19,7 @@ public enum NetworkRouter {
 
     public var method: HTTPMethod {
         switch self {
-        case .userRepos(user: let user, page: let page):
+        case .userRepos(user: _, page: _):
             return .get
         }
     }

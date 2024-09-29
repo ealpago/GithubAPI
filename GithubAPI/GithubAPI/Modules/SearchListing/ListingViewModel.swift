@@ -18,12 +18,13 @@ protocol ListingViewModelInterface {
     func sortByCreatedDate()
     func sortByUpdatedDate()
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize
+    func cellForItem(at item: Int) -> String
 }
 
 final class ListingViewModel {
     weak var view: ListingViewInterface?
     private var repos: [GitHubRepo] = []
-    private var sortedRepos: [GitHubRepo] = []
+    var sortedRepos: [GitHubRepo] = []
 
     private func getRepos(user: String, page: Int) {
         ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
@@ -36,7 +37,7 @@ final class ListingViewModel {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.view?.showError(title: "Error", message: "Error Occur", buttonTitle: "OK", completion: {
+                    self.view?.showError(title: "Error", message: error.localizedDescription, buttonTitle: "OK", completion: {
                         self.view?.popToRoot()
                     })
                 }
@@ -45,6 +46,11 @@ final class ListingViewModel {
     }}
 
 extension ListingViewModel: ListingViewModelInterface {
+    func cellForItem(at item: Int) -> String {
+        guard let name = repos[item].name else { return "" }
+        return name
+    }
+    
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize {
         let spaceBetweenCells = minimumSpacing * (CGFloat(columns) - 1)
         let adjustedWidth = width - spaceBetweenCells
@@ -56,7 +62,7 @@ extension ListingViewModel: ListingViewModelInterface {
     func changeUI() {}
     
     var numberOfRowsInSection: Int {
-        sortedRepos.count
+        repos.count
     }
 
     func viewDidLoad() {
