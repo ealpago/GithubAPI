@@ -7,14 +7,18 @@
 
 import UIKit
 
-protocol SearchViewInterface: AnyObject {
+protocol SearchViewInterface: AnyObject, AlertPresentable {
     var isValid: Bool { get }
+    var userName: String { get }
 
     func prepareUI()
-    func endTyping()
-    func performActionForListing()
     func buttonDeactive()
     func buttonActive()
+    func buttonTouchable()
+    func buttonUntouchable()
+    func pushVC()
+    func showAlert()
+    func dismissKeyboard()
 }
 
 final class SearchViewController: UIViewController {
@@ -36,11 +40,35 @@ final class SearchViewController: UIViewController {
     }
 
     //MARK: Actions
-    @IBAction private func searchButtonTapped(_ sender: UIButton) {}
+    @IBAction private func searchButtonTapped(_ sender: UIButton) {
+        viewModel.searchButtonTapped()
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        viewModel.searchBarDidBeginEditing()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.searchBarEndEditing(text: userName)
+    }
 }
 
 extension SearchViewController: SearchViewInterface {
+    var userName: String {
+        get {
+            return userSearchBar.text ?? ""
+        }
+    }
+
     var isValid: Bool { userSearchBar.text != nil }
+
+    func prepareUI() {
+        userSearchBar.setBackgroundImage(UIImage.init(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        userSearchBar.searchTextField.returnKeyType = .done
+        userSearchBar.delegate = self
+    }
 
     func buttonDeactive() {
         searchButton.isEnabled = false
@@ -49,12 +77,26 @@ extension SearchViewController: SearchViewInterface {
     func buttonActive() {
         searchButton.isEnabled = true
     }
+    
+    func buttonTouchable() {
+        searchButton.isUserInteractionEnabled = true
+    }
 
-    func performActionForListing() {}
-    
-    func endTyping() {}
-    
-    func prepareUI() {
-        userSearchBar.setBackgroundImage(UIImage.init(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+    func buttonUntouchable() {
+        searchButton.isUserInteractionEnabled = false
+    }
+
+    func showAlert() {
+        showError(title: "", message: "", buttonTitle: "") {}
+    }
+
+    func dismissKeyboard() {
+        userSearchBar.resignFirstResponder()
+    }
+
+    func pushVC() {
+        let listingVC = ListingViewController()
+        listingVC.arguments = ListingViewArguments(userName: userName)
+        navigationController?.pushViewController(listingVC, animated: true)
     }
 }
