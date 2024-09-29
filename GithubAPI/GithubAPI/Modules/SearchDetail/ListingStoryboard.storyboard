@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,29 +17,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="User Name" translatesAutoresizingMaskIntoConstraints="NO" id="hqQ-Xv-tFH">
-                                <rect key="frame" x="16" y="71" width="361" height="56"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="muh-W7-H63"/>
-                                </connections>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UeG-vR-JTQ">
+                                <rect key="frame" x="12" y="75" width="369" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-ov-ErB">
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Sort by Stars">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNJ-Sa-TQP">
+                                        <rect key="frame" x="127" y="0.0" width="115" height="30"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Sort by Created At">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-N5-Gaz">
+                                        <rect key="frame" x="254" y="0.0" width="115" height="30"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Sort by Updated At">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-3p-H5y">
-                                <rect key="frame" x="16" y="139" width="361" height="679"/>
+                                <rect key="frame" x="16" y="117" width="361" height="701"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yqt-3p-H5y" secondAttribute="trailing" constant="16" id="6v0-uQ-rrm"/>
+                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="top" secondItem="UeG-vR-JTQ" secondAttribute="bottom" constant="12" id="9oh-TQ-NQs"/>
+                            <constraint firstItem="UeG-vR-JTQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="Cyg-YO-EBX"/>
+                            <constraint firstItem="UeG-vR-JTQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="G5b-3n-ITD"/>
                             <constraint firstItem="Yqt-3p-H5y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MfT-xM-aDw"/>
-                            <constraint firstItem="hqQ-Xv-tFH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="T1h-5m-a1h"/>
-                            <constraint firstItem="hqQ-Xv-tFH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="YgD-27-1Dd"/>
-                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="top" secondItem="hqQ-Xv-tFH" secondAttribute="bottom" constant="12" id="bhp-kD-ZUi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UeG-vR-JTQ" secondAttribute="trailing" constant="12" id="fMs-bu-1Oe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Yqt-3p-H5y" secondAttribute="bottom" id="inw-py-oZP"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hqQ-Xv-tFH" secondAttribute="trailing" constant="16" id="rOO-hR-RSM"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -49,8 +70,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
