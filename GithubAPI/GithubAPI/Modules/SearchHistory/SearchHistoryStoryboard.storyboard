@@ -16,8 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-bc-ClA">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YKk-bc-ClA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="H6a-IL-npP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YKk-bc-ClA" secondAttribute="bottom" id="LV3-HO-3Q3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YKk-bc-ClA" secondAttribute="trailing" id="Zxb-gn-eZd"/>
+                            <constraint firstItem="YKk-bc-ClA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Zys-in-TgT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fvC-G5-z8x"/>
                 </viewController>
