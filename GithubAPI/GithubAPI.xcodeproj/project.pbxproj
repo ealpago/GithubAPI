@@ -193,8 +193,6 @@
 		D18917682CA5BF05009C399C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D18917882CA6BED4009C399C /* SearchHistoryTableViewCell */,
-				D189177B2CA5E6BC009C399C /* RepoOwnerTableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +256,7 @@
 			children = (
 				D18917862CA6BE3C009C399C /* SearchHistoryViewController.swift */,
 				D18917972CA6CFF8009C399C /* SearchHistoryStoryboard.storyboard */,
+				D18917882CA6BED4009C399C /* SearchHistoryTableViewCell */,
 			);
 			path = SearchHistory;
 			sourceTree = "<group>";
@@ -267,6 +266,7 @@
 			children = (
 				D189176B2CA5C085009C399C /* ListingViewController.swift */,
 				D18917702CA5C16E009C399C /* ListingStoryboard.storyboard */,
+				D189177B2CA5E6BC009C399C /* RepoOwnerTableViewCell */,
 			);
 			path = SearchDetail;
 			sourceTree = "<group>";
