@@ -14,7 +14,7 @@ protocol ListingViewInterface: AnyObject, AlertPresentable {
     func prepareTableView()
     func reloadData()
     func willDisplay()
-    func showAlert()
+    func popToRoot()
 }
 
 struct ListingViewArguments {
@@ -45,16 +45,17 @@ final class ListingViewController: UIViewController {
 }
 
 extension ListingViewController: ListingViewInterface {
+    func popToRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
+
+    }
+    
     var userName: String {
         arguments?.userName ?? ""
     }
 
     var columns: Int {
         0
-    }
-
-    func showAlert() {
-        showError(title: "", message: "", buttonTitle: "") {}
     }
 
     func prepareTableView() {

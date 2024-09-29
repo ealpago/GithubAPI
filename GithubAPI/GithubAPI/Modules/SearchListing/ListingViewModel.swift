@@ -26,13 +26,23 @@ final class ListingViewModel {
     private var sortedRepos: [GitHubRepo] = []
 
     private func getRepos(user: String, page: Int) {
-        ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] repos in
-            guard let self = self else {return}
-            self.repos = repos
-            self.view?.reloadData()
+        ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let repos):
+                DispatchQueue.main.async {
+                    self.repos = repos
+                    self.view?.reloadData()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.view?.showError(title: "Error", message: "Error Occur", buttonTitle: "OK", completion: {
+                        self.view?.popToRoot()
+                    })
+                }
+            }
         }
-    }
-}
+    }}
 
 extension ListingViewModel: ListingViewModelInterface {
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize {
