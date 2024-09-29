@@ -21,13 +21,13 @@ struct ListingViewArguments {
     var userName: String?
 }
 
-class ListingViewController: UIViewController {
+final class ListingViewController: UIViewController {
     @IBOutlet private weak var buttonsStackView: UIStackView!
     @IBOutlet private weak var changeUIButton: UIButton!
     @IBOutlet private weak var sortByStarButton: UIButton!
     @IBOutlet private weak var sortByCreatedDateButton: UIButton!
     @IBOutlet private weak var sortByUpdatedDateButton: UIButton!
-    @IBOutlet private weak var reposCollectionView: UICollectionView!
+    @IBOutlet private weak var repoCollectionView: UICollectionView!
 
     private lazy var viewModel = ListingViewModel()
     var arguments: ListingViewArguments?
@@ -48,24 +48,23 @@ extension ListingViewController: ListingViewInterface {
     var userName: String {
         arguments?.userName ?? ""
     }
-    
+
     var columns: Int {
         0
     }
-    
+
     func showAlert() {
         showError(title: "", message: "", buttonTitle: "") {}
     }
 
     func prepareTableView() {
-        reposCollectionView.dataSource = self
-        reposCollectionView.delegate = self
-        reposCollectionView.register(RepoCollectionViewCell.nib, forCellWithReuseIdentifier: RepoCollectionViewCell.identifier)
-        reposCollectionView.reloadData()
+        repoCollectionView.dataSource = self
+        repoCollectionView.delegate = self
+        repoCollectionView.register(RepoCollectionViewCell.nib, forCellWithReuseIdentifier: RepoCollectionViewCell.identifier)
     }
-    
+
     func reloadData() {
-        self.reposCollectionView.reloadData()
+        self.repoCollectionView.reloadData()
     }
 
     func willDisplay() {}
@@ -81,9 +80,9 @@ extension ListingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.numberOfRowsInSection
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = reposCollectionView.dequeueReusableCell(withReuseIdentifier: RepoCollectionViewCell.identifier, for: indexPath) as? RepoCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = repoCollectionView.dequeueReusableCell(withReuseIdentifier: RepoCollectionViewCell.identifier, for: indexPath) as? RepoCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
 }
@@ -92,6 +91,6 @@ extension ListingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        return viewModel.collectionViewLayout(width: collectionView.bounds.width, minimumSpacing: flowLayout.minimumInteritemSpacing, columns: columns)
+        return viewModel.collectionViewLayout(width: collectionViewWidth, minimumSpacing: flowLayout.minimumInteritemSpacing, columns: columns)
     }
 }

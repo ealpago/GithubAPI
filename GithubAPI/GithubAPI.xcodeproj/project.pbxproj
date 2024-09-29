@@ -16,7 +16,6 @@
 		D18917562CA5BDB5009C399C /* GithubAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917552CA5BDB5009C399C /* GithubAPIUITests.swift */; };
 		D18917582CA5BDB5009C399C /* GithubAPIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917572CA5BDB5009C399C /* GithubAPIUITestsLaunchTests.swift */; };
 		D189176C2CA5C085009C399C /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D189176B2CA5C085009C399C /* ListingViewController.swift */; };
-		D18917712CA5C16E009C399C /* ListingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18917702CA5C16E009C399C /* ListingStoryboard.storyboard */; };
 		D18917732CA5E207009C399C /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917722CA5E207009C399C /* GitHubRepo.swift */; };
 		D18917752CA5E247009C399C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917742CA5E247009C399C /* Owner.swift */; };
 		D18917772CA5E275009C399C /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917762CA5E275009C399C /* License.swift */; };
@@ -37,6 +36,8 @@
 		D1E17B122CA989D100F228A9 /* ReposStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B112CA989D100F228A9 /* ReposStoreManager.swift */; };
 		D1E17B172CA9963F00F228A9 /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B152CA9963F00F228A9 /* RepoCollectionViewCell.swift */; };
 		D1E17B182CA9963F00F228A9 /* RepoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E17B162CA9963F00F228A9 /* RepoCollectionViewCell.xib */; };
+		D1E17B1A2CA9CAE600F228A9 /* ListingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */; };
+		D1E17B1C2CA9CBD700F228A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,6 @@
 		D18917552CA5BDB5009C399C /* GithubAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIUITests.swift; sourceTree = "<group>"; };
 		D18917572CA5BDB5009C399C /* GithubAPIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D189176B2CA5C085009C399C /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
-		D18917702CA5C16E009C399C /* ListingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListingStoryboard.storyboard; sourceTree = "<group>"; };
 		D18917722CA5E207009C399C /* GitHubRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 		D18917742CA5E247009C399C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		D18917762CA5E275009C399C /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		D1E17B112CA989D100F228A9 /* ReposStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposStoreManager.swift; sourceTree = "<group>"; };
 		D1E17B152CA9963F00F228A9 /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1E17B162CA9963F00F228A9 /* RepoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListingStoryboard.storyboard; sourceTree = "<group>"; };
+		D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,8 +264,8 @@
 			children = (
 				D189176B2CA5C085009C399C /* ListingViewController.swift */,
 				D1E17B0F2CA96F8C00F228A9 /* ListingViewModel.swift */,
-				D18917702CA5C16E009C399C /* ListingStoryboard.storyboard */,
 				D1E17B142CA9962000F228A9 /* RepoCollectionViewCell */,
+				D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */,
 			);
 			path = SearchDetail;
 			sourceTree = "<group>";
@@ -273,6 +275,7 @@
 			children = (
 				D1E17B072CA83B2A00F228A9 /* UIView+Extension.swift */,
 				D1E17B0C2CA8409F00F228A9 /* String+Extension.swift */,
+				D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,9 +402,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E17B182CA9963F00F228A9 /* RepoCollectionViewCell.xib in Resources */,
+				D1E17B1A2CA9CAE600F228A9 /* ListingStoryboard.storyboard in Resources */,
 				D18917962CA6CCE6009C399C /* SearchStoryboard.storyboard in Resources */,
 				D189178C2CA6BF09009C399C /* SearchHistoryTableViewCell.xib in Resources */,
-				D18917712CA5C16E009C399C /* ListingStoryboard.storyboard in Resources */,
 				D18917412CA5BDB5009C399C /* LaunchScreen.storyboard in Resources */,
 				D18917982CA6CFF8009C399C /* SearchHistoryStoryboard.storyboard in Resources */,
 				D189173E2CA5BDB5009C399C /* Assets.xcassets in Resources */,
@@ -447,6 +450,7 @@
 				D18917342CA5BDB2009C399C /* SceneDelegate.swift in Sources */,
 				D18917732CA5E207009C399C /* GitHubRepo.swift in Sources */,
 				D1E17B172CA9963F00F228A9 /* RepoCollectionViewCell.swift in Sources */,
+				D1E17B1C2CA9CBD700F228A9 /* UIViewController+Extension.swift in Sources */,
 				D189173C2CA5BDB2009C399C /* GithubAPI.xcdatamodeld in Sources */,
 				D189176C2CA5C085009C399C /* ListingViewController.swift in Sources */,
 			);
