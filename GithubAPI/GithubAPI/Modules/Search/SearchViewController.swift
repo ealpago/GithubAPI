@@ -95,8 +95,9 @@ extension SearchViewController: SearchViewInterface {
     }
 
     func pushVC() {
-        let listingVC = ListingViewController()
-        listingVC.arguments = ListingViewArguments(userName: userName)
-        navigationController?.pushViewController(listingVC, animated: true)
+        if let vc = "ListingStoryboard".viewController(identifier: ListingViewController.identifier) as? ListingViewController {
+            vc.arguments = ListingViewArguments(userName: userName)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
