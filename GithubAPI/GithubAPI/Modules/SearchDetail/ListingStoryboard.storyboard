@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,49 +19,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UeG-vR-JTQ">
-                                <rect key="frame" x="12" y="75" width="369" height="30"/>
+                                <rect key="frame" x="12" y="75" width="369" height="74.333333333333314"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egU-Oi-enX">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="74.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Change UI"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-ov-ErB">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                        <rect key="frame" x="95.333333333333343" y="0.0" width="83.333333333333343" height="74.333333333333329"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Sort by Stars">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sort by Stars">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNJ-Sa-TQP">
-                                        <rect key="frame" x="127" y="0.0" width="115" height="30"/>
+                                        <rect key="frame" x="190.66666666666666" y="0.0" width="82.999999999999972" height="74.333333333333329"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Sort by Created At">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sort by Created At">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-N5-Gaz">
-                                        <rect key="frame" x="254" y="0.0" width="115" height="30"/>
+                                        <rect key="frame" x="285.66666666666669" y="0.0" width="83.333333333333314" height="74.333333333333329"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Sort by Updated At">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sort by Updated At">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-3p-H5y">
-                                <rect key="frame" x="16" y="117" width="361" height="701"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xQ6-QH-BSk">
+                                <rect key="frame" x="12" y="165.33333333333331" width="369" height="652.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Sd-lt-heq">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yqt-3p-H5y" secondAttribute="trailing" constant="16" id="6v0-uQ-rrm"/>
-                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="top" secondItem="UeG-vR-JTQ" secondAttribute="bottom" constant="12" id="9oh-TQ-NQs"/>
+                            <constraint firstItem="xQ6-QH-BSk" firstAttribute="top" secondItem="UeG-vR-JTQ" secondAttribute="bottom" constant="16" id="3FG-iH-LIf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xQ6-QH-BSk" secondAttribute="trailing" constant="12" id="7Q6-fy-k4m"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xQ6-QH-BSk" secondAttribute="bottom" id="9cp-u3-FDs"/>
                             <constraint firstItem="UeG-vR-JTQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="Cyg-YO-EBX"/>
                             <constraint firstItem="UeG-vR-JTQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="G5b-3n-ITD"/>
-                            <constraint firstItem="Yqt-3p-H5y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MfT-xM-aDw"/>
+                            <constraint firstItem="xQ6-QH-BSk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="GOI-gq-l70"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UeG-vR-JTQ" secondAttribute="trailing" constant="12" id="fMs-bu-1Oe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Yqt-3p-H5y" secondAttribute="bottom" id="inw-py-oZP"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -73,5 +95,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
