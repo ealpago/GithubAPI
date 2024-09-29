@@ -64,7 +64,9 @@ extension ListingViewController: ListingViewInterface {
     }
 
     func reloadData() {
-        self.repoCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.repoCollectionView.reloadData()
+        }
     }
 
     func willDisplay() {}
