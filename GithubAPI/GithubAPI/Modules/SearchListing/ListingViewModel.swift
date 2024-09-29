@@ -25,6 +25,7 @@ final class ListingViewModel {
     weak var view: ListingViewInterface?
     private var repos: [GitHubRepo] = []
     var sortedRepos: [GitHubRepo] = []
+    private var itemsPerRow = 1
 
     private func getRepos(user: String, page: Int) {
         ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
@@ -59,7 +60,12 @@ extension ListingViewModel: ListingViewModelInterface {
         return CGSize(width: width, height: height)
     }
     
-    func changeUI() {}
+    func changeUI() {
+        itemsPerRow = itemsPerRow >= 3 ? 1 : itemsPerRow + 1
+        self.view?.setupCollectionViewLayout(itemsPerRow: itemsPerRow)
+        self.view?.scrollToItem()
+        self.view?.reloadData()
+    }
     
     var numberOfRowsInSection: Int {
         repos.count
@@ -67,6 +73,7 @@ extension ListingViewModel: ListingViewModelInterface {
 
     func viewDidLoad() {
         self.view?.prepareTableView()
+        self.view?.setupCollectionViewLayout(itemsPerRow: 1)
         self.getRepos(user: view?.userName ?? "", page: 1)
     }
 

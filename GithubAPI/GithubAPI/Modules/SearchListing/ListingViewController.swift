@@ -15,6 +15,8 @@ protocol ListingViewInterface: AnyObject, AlertPresentable {
     func reloadData()
     func willDisplay()
     func popToRoot()
+    func setupCollectionViewLayout(itemsPerRow: Int)
+    func scrollToItem()
 }
 
 struct ListingViewArguments {
@@ -38,16 +40,37 @@ final class ListingViewController: UIViewController {
         viewModel.viewDidLoad()
     }
 
-    @IBAction private func changeUIButtonTapped(_ sender: UIButton) {}
+    @IBAction private func changeUIButtonTapped(_ sender: UIButton) {
+        viewModel.changeUI()
+    }
     @IBAction private func sortByStarButtonTapped(_ sender: UIButton) {}
     @IBAction private func sortByCreatedDateButtonTapped(_ sender: UIButton) {}
     @IBAction private func sortByUpdatedDateButtonTapped(_ sender: UIButton) {}
 }
 
 extension ListingViewController: ListingViewInterface {
+    func scrollToItem() {
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        repoCollectionView.scrollToItem(at: firstIndexPath, at: .top, animated: false)
+    }
+    
+    func setupCollectionViewLayout(itemsPerRow: Int) {
+        let layout = UICollectionViewFlowLayout()
+
+        // Calculate item width based on the number of items per row
+        let totalSpacing: CGFloat = 10  // Space between items
+        let padding: CGFloat = 20  // Padding on the sides
+        let availableWidth = repoCollectionView.frame.width - padding - (CGFloat(itemsPerRow - 1) * totalSpacing)
+        let itemWidth = availableWidth / CGFloat(itemsPerRow)
+
+        layout.itemSize = CGSize(width: itemWidth, height: 100)  // Fixed height
+        layout.minimumLineSpacing = 10  // Space between rows
+        layout.minimumInteritemSpacing = totalSpacing  // Space between items
+        repoCollectionView.collectionViewLayout = layout
+    }
+
     func popToRoot() {
         self.navigationController?.popToRootViewController(animated: true)
-
     }
     
     var userName: String {
@@ -55,7 +78,7 @@ extension ListingViewController: ListingViewInterface {
     }
 
     var columns: Int {
-        0
+        1
     }
 
     func prepareTableView() {
