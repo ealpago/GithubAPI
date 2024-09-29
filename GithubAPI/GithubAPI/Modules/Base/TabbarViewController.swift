@@ -12,10 +12,10 @@ class TabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let searchStoryboard = UIStoryboard(name: "SearchStoryboard", bundle: nil)
-        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: "SearchNavBar")
 
         let searchHistoryStoryboard = UIStoryboard(name: "SearchHistoryStoryboard", bundle: nil)
-        let searchHistoryVC = searchHistoryStoryboard.instantiateViewController(withIdentifier: "SearchHistoryViewController") as! SearchHistoryViewController
+        let searchHistoryVC = searchHistoryStoryboard.instantiateViewController(withIdentifier: "SearchHistoryNavBar")
 
         searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         searchHistoryVC.tabBarItem.image = UIImage(systemName: "clock.fill")
