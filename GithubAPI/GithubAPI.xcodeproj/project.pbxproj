@@ -19,7 +19,7 @@
 		D18917732CA5E207009C399C /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917722CA5E207009C399C /* GitHubRepo.swift */; };
 		D18917752CA5E247009C399C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917742CA5E247009C399C /* Owner.swift */; };
 		D18917772CA5E275009C399C /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917762CA5E275009C399C /* License.swift */; };
-		D189177A2CA5E45A009C399C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917792CA5E45A009C399C /* NetworkService.swift */; };
+		D189177A2CA5E45A009C399C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917792CA5E45A009C399C /* NetworkManager.swift */; };
 		D18917812CA5F72A009C399C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917802CA5F72A009C399C /* Constants.swift */; };
 		D18917832CA6BD2A009C399C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917822CA6BD2A009C399C /* SearchViewController.swift */; };
 		D18917852CA6BE22009C399C /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917842CA6BE22009C399C /* TabbarViewController.swift */; };
@@ -74,7 +74,7 @@
 		D18917722CA5E207009C399C /* GitHubRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 		D18917742CA5E247009C399C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		D18917762CA5E275009C399C /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
-		D18917792CA5E45A009C399C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D18917792CA5E45A009C399C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D18917802CA5F72A009C399C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D18917822CA6BD2A009C399C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D18917842CA6BE22009C399C /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				D18917902CA6CC62009C399C /* Base */,
 				D18917912CA6CC70009C399C /* Search */,
 				D18917922CA6CC7F009C399C /* SearchHistory */,
-				D18917932CA6CC8F009C399C /* SearchDetail */,
+				D18917932CA6CC8F009C399C /* SearchListing */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 		D18917782CA5E3D4009C399C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				D18917792CA5E45A009C399C /* NetworkService.swift */,
+				D18917792CA5E45A009C399C /* NetworkManager.swift */,
 				D1E17B112CA989D100F228A9 /* ReposStoreManager.swift */,
 			);
 			path = Managers;
@@ -259,7 +259,7 @@
 			path = SearchHistory;
 			sourceTree = "<group>";
 		};
-		D18917932CA6CC8F009C399C /* SearchDetail */ = {
+		D18917932CA6CC8F009C399C /* SearchListing */ = {
 			isa = PBXGroup;
 			children = (
 				D189176B2CA5C085009C399C /* ListingViewController.swift */,
@@ -267,7 +267,7 @@
 				D1E17B142CA9962000F228A9 /* RepoCollectionViewCell */,
 				D1E17B192CA9CAE600F228A9 /* ListingStoryboard.storyboard */,
 			);
-			path = SearchDetail;
+			path = SearchListing;
 			sourceTree = "<group>";
 		};
 		D1E17B062CA83B1000F228A9 /* Extensions */ = {
@@ -443,7 +443,7 @@
 				D18917772CA5E275009C399C /* License.swift in Sources */,
 				D1E17B052CA82A6900F228A9 /* SearchViewModel.swift in Sources */,
 				D18917872CA6BE3C009C399C /* SearchHistoryViewController.swift in Sources */,
-				D189177A2CA5E45A009C399C /* NetworkService.swift in Sources */,
+				D189177A2CA5E45A009C399C /* NetworkManager.swift in Sources */,
 				D1E17B0D2CA8409F00F228A9 /* String+Extension.swift in Sources */,
 				D18917832CA6BD2A009C399C /* SearchViewController.swift in Sources */,
 				D1E17B0B2CA83BE400F228A9 /* AlertPresentable.swift in Sources */,

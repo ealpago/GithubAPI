@@ -11,11 +11,17 @@ class ReposStoreManager {
     static let shared = ReposStoreManager()
     var repos = [GitHubRepo]()
 
-    public func fetchRepos(user: String, page: Int, completion: @escaping([GitHubRepo])->()) {
-        NetworkManager.service.request(requestRoute: .userRepos(user: user, page: page), responseModel: [GitHubRepo].self) { [weak self] repos in
-            guard let self = self else {return}
-            self.repos = repos
-            completion(repos)
+    func fetchRepos(user: String, page: Int, completion: @escaping (Result<[GitHubRepo], NetworkError>) -> ()) {
+        NetworkManager.shared.request(requestRoute: NetworkRouter.userRepos(user: user, page: page), responseModel: [GitHubRepo].self) { [weak self] result in
+            switch result {
+            case .success(let repos):
+                print("Received repos: \(repos)")
+                self?.repos = repos
+                completion(.success(repos))
+            case .failure(let error):
+                print("Failed with error: \(error)")
+                completion(.failure(error))
+            }
         }
     }
 }
