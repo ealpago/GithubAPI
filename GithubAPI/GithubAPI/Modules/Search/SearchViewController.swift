@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol SearchViewInterface: AnyObject, AlertPresentable {
     var isValid: Bool { get }
