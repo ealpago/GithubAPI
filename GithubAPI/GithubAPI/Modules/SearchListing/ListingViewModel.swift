@@ -17,15 +17,24 @@ protocol ListingViewModelInterface {
     func sortByStar()
     func sortByCreatedDate()
     func sortByUpdatedDate()
+    func clearSorting()
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize
     func cellForItem(at item: Int) -> String
+}
+
+enum SortedCases {
+    case sortByStar
+    case sortByDate
+    case sortByUpdate
+    case clean
 }
 
 final class ListingViewModel {
     weak var view: ListingViewInterface?
     private var repos: [GitHubRepo] = []
-    var sortedRepos: [GitHubRepo] = []
+    private var sortedRepos: [GitHubRepo] = []
     private var itemsPerRow = 1
+    private var selectedSortCase: SortedCases?
 
     private func getRepos(user: String, page: Int) {
         ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
@@ -34,6 +43,7 @@ final class ListingViewModel {
             case .success(let repos):
                 DispatchQueue.main.async {
                     self.repos = repos
+                    self.sortedRepos = repos
                     self.view?.reloadData()
                 }
             case .failure(let error):
@@ -47,8 +57,15 @@ final class ListingViewModel {
     }}
 
 extension ListingViewModel: ListingViewModelInterface {
+    func clearSorting() {
+        sortedRepos = repos
+        selectedSortCase = .clean
+        self.view?.scrollToItem()
+        self.view?.reloadData()
+    }
+    
     func cellForItem(at item: Int) -> String {
-        guard let name = repos[item].name else { return "" }
+        guard let name = sortedRepos[item].name else { return "" }
         return name
     }
     
@@ -68,7 +85,7 @@ extension ListingViewModel: ListingViewModelInterface {
     }
     
     var numberOfRowsInSection: Int {
-        repos.count
+        sortedRepos.count
     }
 
     func viewDidLoad() {
@@ -77,13 +94,55 @@ extension ListingViewModel: ListingViewModelInterface {
         self.getRepos(user: view?.userName ?? "", page: 1)
     }
 
-    func sortByStar() {}
+    func sortByStar() {
+        guard selectedSortCase != .sortByStar else {
+            clearSorting()
+            return
+        }
+        selectedSortCase = .sortByStar
+        sortedRepos = repos.sorted {
+            guard let starOne = $0.stargazersCount, let starTwo = $1.stargazersCount else {
+                return false
+            }
+            return starOne > starTwo
+        }
+        self.view?.scrollToItem()
+        self.view?.reloadData()
+    }
     
-    func sortByCreatedDate() {}
+    func sortByCreatedDate() {
+        guard selectedSortCase != .sortByDate else {
+            clearSorting()
+            return
+        }
+        selectedSortCase = .sortByDate
+        sortedRepos = repos.sorted {
+            guard let dateOne = $0.createdAt?.toDate(), let dateTwo = $1.createdAt?.toDate() else {
+                return false
+            }
+            return dateOne > dateTwo
+        }
+        self.view?.scrollToItem()
+        self.view?.reloadData()
+    }
     
-    func sortByUpdatedDate() {}
+    func sortByUpdatedDate() {
+        guard selectedSortCase != .sortByUpdate else {
+            clearSorting()
+            return
+        }
+        selectedSortCase = .sortByUpdate
+        sortedRepos = repos.sorted {
+            guard let dateOne = $0.updatedAt?.toDate(), let dateTwo = $1.updatedAt?.toDate() else {
+                return false
+            }
+            return dateOne > dateTwo
+        }
+        self.view?.scrollToItem()
+        self.view?.reloadData()
+    }
 
     func beginPagination(user: String, page: Int) {
-        self.getRepos(user: view?.userName ?? "", page: 1)
+        self.getRepos(user: view?.userName ?? "", page: page)
     }
 }

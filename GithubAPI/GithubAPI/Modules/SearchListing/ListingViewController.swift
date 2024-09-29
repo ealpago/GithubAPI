@@ -43,9 +43,16 @@ final class ListingViewController: UIViewController {
     @IBAction private func changeUIButtonTapped(_ sender: UIButton) {
         viewModel.changeUI()
     }
-    @IBAction private func sortByStarButtonTapped(_ sender: UIButton) {}
-    @IBAction private func sortByCreatedDateButtonTapped(_ sender: UIButton) {}
-    @IBAction private func sortByUpdatedDateButtonTapped(_ sender: UIButton) {}
+
+    @IBAction private func sortByStarButtonTapped(_ sender: UIButton) {
+        viewModel.sortByStar()
+    }
+    @IBAction private func sortByCreatedDateButtonTapped(_ sender: UIButton) {
+        viewModel.sortByCreatedDate()
+    }
+    @IBAction private func sortByUpdatedDateButtonTapped(_ sender: UIButton) {
+        viewModel.sortByUpdatedDate()
+    }
 }
 
 extension ListingViewController: ListingViewInterface {
@@ -53,7 +60,7 @@ extension ListingViewController: ListingViewInterface {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         repoCollectionView.scrollToItem(at: firstIndexPath, at: .top, animated: false)
     }
-    
+
     func setupCollectionViewLayout(itemsPerRow: Int) {
         let layout = UICollectionViewFlowLayout()
 
@@ -72,7 +79,7 @@ extension ListingViewController: ListingViewInterface {
     func popToRoot() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
+
     var userName: String {
         arguments?.userName ?? ""
     }
@@ -113,11 +120,3 @@ extension ListingViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
-//extension ListingViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let collectionViewWidth = collectionView.bounds.width
-//        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-//        return viewModel.collectionViewLayout(width: collectionViewWidth, minimumSpacing: flowLayout.minimumInteritemSpacing, columns: columns)
-//    }
-//}
