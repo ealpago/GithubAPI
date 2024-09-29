@@ -8,20 +8,23 @@
 import UIKit
 
 class TabbarViewController: UITabBarController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let searchStoryboard = UIStoryboard(name: "SearchStoryboard", bundle: nil)
+        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
 
-        let vc1 = UINavigationController(rootViewController: SearchViewController())
-        let vc2 = UINavigationController(rootViewController: SearchHistoryViewController())
+        let searchHistoryStoryboard = UIStoryboard(name: "SearchHistoryStoryboard", bundle: nil)
+        let searchHistoryVC = searchHistoryStoryboard.instantiateViewController(withIdentifier: "SearchHistoryViewController") as! SearchHistoryViewController
 
-        vc1.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        vc2.tabBarItem.image = UIImage(systemName: "clock.fill")
+        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        searchHistoryVC.tabBarItem.image = UIImage(systemName: "clock.fill")
 
-        vc1.title = "Home"
-        vc2.title = "Coming Soon"
+        searchVC.title = "Home"
+        searchHistoryVC.title = "Coming Soon"
 
         tabBar.tintColor = .label
 
-        setViewControllers([vc1, vc2], animated: true)
+        setViewControllers([searchVC, searchHistoryVC], animated: true)
     }
 }
