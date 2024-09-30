@@ -40,6 +40,7 @@
 		D1E17B1C2CA9CBD700F228A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */; };
 		D1E17B202CAA0EB100F228A9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B1F2CAA0EB100F228A9 /* CoreDataManager.swift */; };
 		D1E17B222CAA17A500F228A9 /* SearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B212CAA17A500F228A9 /* SearchHistoryViewModel.swift */; };
+		D1E17B242CAABD9000F228A9 /* ProgressIndicatorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E17B232CAABD9000F228A9 /* ProgressIndicatorPresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		D1E17B1B2CA9CBD700F228A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D1E17B1F2CAA0EB100F228A9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D1E17B212CAA17A500F228A9 /* SearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModel.swift; sourceTree = "<group>"; };
+		D1E17B232CAABD9000F228A9 /* ProgressIndicatorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E17B0A2CA83BE400F228A9 /* AlertPresentable.swift */,
+				D1E17B232CAABD9000F228A9 /* ProgressIndicatorPresentable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				D18917322CA5BDB2009C399C /* AppDelegate.swift in Sources */,
 				D1E17B082CA83B2A00F228A9 /* UIView+Extension.swift in Sources */,
 				D1E17B102CA96F8C00F228A9 /* ListingViewModel.swift in Sources */,
+				D1E17B242CAABD9000F228A9 /* ProgressIndicatorPresentable.swift in Sources */,
 				D18917852CA6BE22009C399C /* TabbarViewController.swift in Sources */,
 				D189178B2CA6BF09009C399C /* SearchHistoryTableViewCell.swift in Sources */,
 				D18917752CA5E247009C399C /* Owner.swift in Sources */,
