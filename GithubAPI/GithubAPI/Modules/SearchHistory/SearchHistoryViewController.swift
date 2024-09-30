@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol SearchHistoryViewInterface: AnyObject, AlertPresentable{
-   func prepareTableView()
+protocol SearchHistoryViewInterface: AnyObject, AlertPresentable, ProgressIndicatorPresentable {
+    func prepareTableView()
+    func reloadData()
 }
 
 final class SearchHistoryViewController: UIViewController {
@@ -26,16 +27,29 @@ final class SearchHistoryViewController: UIViewController {
 
 extension SearchHistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        viewModel.numberOfRowsInSection
     }
 }
 
+//Defible
 extension SearchHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchHistoryTableViewCell.identifier, for: indexPath) as? SearchHistoryTableViewCell else { return UITableViewCell() }
+        cell.configure(with: viewModel.cellForItem(at: indexPath.item))
+        return cell
     }
 }
 
 extension SearchHistoryViewController: SearchHistoryViewInterface {
-    func prepareTableView() {}
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func prepareTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(SearchHistoryTableViewCell.nib, forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
+    }
 }
