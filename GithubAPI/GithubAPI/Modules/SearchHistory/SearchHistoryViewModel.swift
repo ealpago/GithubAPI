@@ -8,11 +8,11 @@
 import Foundation
 
 protocol SearchHistoryViewModelInterface {
-    var searchHistory: [Users] { get }
+    var searchHistory: [String] { get }
     var numberOfRowsInSection: Int { get }
 
     func viewDidLoad()
-    func didSelectItem()
+    func didSelectRow(at item: Int)
     func cellForItem(at item: Int) -> String
 }
 
@@ -21,12 +21,12 @@ final class SearchHistoryViewModel {
 }
 
 extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
-    var searchHistory: [Users] {
-        CoreDataManager.shared.fetchUsers()
+    var searchHistory: [String] {
+        CoreDataManager.shared.fetchUniqueUserNames()
     }
-    
+
     var numberOfRowsInSection: Int {
-        searchHistory.compactMap { $0.userName }.uniqued().count
+        searchHistory.count
     }
 
     func viewDidLoad() {
@@ -35,11 +35,12 @@ extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
     }
 
     func cellForItem(at item: Int) -> String {
-        let uniqueUserNames = searchHistory.compactMap { $0.userName }.uniqued()
-        guard item < uniqueUserNames.count else { return "" }
-        let name = uniqueUserNames[item]
+        let name = searchHistory[item]
         return name
     }
 
-    func didSelectItem() {}
+    func didSelectRow(at item: Int) {
+        let userName = searchHistory[item]
+        self.view?.pushVC(userName: userName)
+    }
 }

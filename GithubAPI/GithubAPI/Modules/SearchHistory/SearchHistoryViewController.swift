@@ -10,6 +10,7 @@ import UIKit
 protocol SearchHistoryViewInterface: AnyObject, AlertPresentable, ProgressIndicatorPresentable {
     func prepareTableView()
     func reloadData()
+    func pushVC(userName: String)
 }
 
 final class SearchHistoryViewController: UIViewController {
@@ -38,6 +39,10 @@ extension SearchHistoryViewController: UITableViewDataSource {
         cell.configure(with: viewModel.cellForItem(at: indexPath.item))
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRow(at: indexPath.row)
+    }
 }
 
 extension SearchHistoryViewController: SearchHistoryViewInterface {
@@ -51,5 +56,12 @@ extension SearchHistoryViewController: SearchHistoryViewInterface {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SearchHistoryTableViewCell.nib, forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
+    }
+    
+    func pushVC(userName: String) {
+        if let vc = "ListingStoryboard".viewController(identifier: ListingViewController.identifier) as? ListingViewController {
+            vc.arguments = ListingViewArguments(userName: userName)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
