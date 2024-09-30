@@ -37,8 +37,10 @@ final class ListingViewModel {
     private var selectedSortCase: SortedCases?
 
     private func getRepos(user: String, page: Int) {
+        view?.showLoadingIndicator()
         ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
             guard let self = self else { return }
+            view?.hideLoadingIndicator()
             switch result {
             case .success(let repos):
                 DispatchQueue.main.async {

@@ -16,6 +16,6 @@ final class RepoCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(with repoName: String) {
-         self.repoNameLabel.text = repoName
-     }
+        self.repoNameLabel.text = repoName
+    }
 }

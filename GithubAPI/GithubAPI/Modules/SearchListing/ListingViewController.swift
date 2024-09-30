@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ListingViewInterface: AnyObject, AlertPresentable {
+protocol ListingViewInterface: AnyObject, AlertPresentable, ProgressIndicatorPresentable {
     var columns: Int { get }
     var userName: String { get }
 
