@@ -15,7 +15,6 @@ protocol SearchViewModelInterface {
     func searchBarDidBeginEditing()
     func searchBarEndEditing(text: String)
     func searchButtonTapped()
-    func saveDataToCore(userName: String)
 }
 
 final class SearchViewModel {
@@ -23,8 +22,6 @@ final class SearchViewModel {
 }
 
 extension SearchViewModel: SearchViewModelInterface {
-    func saveDataToCore(userName: String) {}
-    
     func searchBarDidBeginEditing() {
         self.view?.buttonUntouchable()
     }
@@ -59,7 +56,7 @@ extension SearchViewModel: SearchViewModelInterface {
             print("Search query is empty")
             return
         }
-        CoreDataStack.shared.saveUser(userName: userName)
+        CoreDataManager.shared.saveUser(userName: userName)
         self.view?.pushVC()
     }
 }
