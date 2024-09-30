@@ -24,7 +24,7 @@ class CoreDataManager {
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
+    
     func saveUser(userName: String) {
         let user = Users(context: context)
         user.userName = userName
@@ -36,12 +36,17 @@ class CoreDataManager {
         }
     }
 
-    func fetchUsers() -> [Users] {
-        let fetchRequest: NSFetchRequest<Users> = Users.fetchRequest()
+    func fetchUniqueUserNames() -> [String] {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Users")
+        fetchRequest.resultType = .dictionaryResultType
+        fetchRequest.propertiesToFetch = ["userName"]
+        fetchRequest.returnsDistinctResults = true // Ensure distinct usernames
         do {
-            return try context.fetch(fetchRequest)
+            let results = try CoreDataManager.shared.context.fetch(fetchRequest) as? [[String: Any]]
+            let userNames = results?.compactMap { $0["userName"] as? String } ?? []
+            return userNames.uniqued()
         } catch {
-            print("Failed to fetch users: \(error)")
+            print("Failed to fetch usernames: \(error)")
             return []
         }
     }
