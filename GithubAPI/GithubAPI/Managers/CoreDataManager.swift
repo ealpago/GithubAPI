@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-class CoreDataStack {
-    static let shared = CoreDataStack()
+class CoreDataManager {
+    static let shared = CoreDataManager()
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GithubAPI")
