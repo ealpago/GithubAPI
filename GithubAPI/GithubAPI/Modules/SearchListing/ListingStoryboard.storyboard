@@ -89,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonsStackView" destination="uWi-9A-nME" id="TOk-dq-rUT"/>
+                        <outlet property="changeUIButton" destination="AkB-qL-gc0" id="mz5-Fk-pEd"/>
                         <outlet property="repoCollectionView" destination="SwE-EA-uMz" id="Fo1-Zm-FAO"/>
                         <outlet property="sortByCreatedDateButton" destination="63Q-m7-AfH" id="RZo-Cq-bu0"/>
                         <outlet property="sortByStarButton" destination="R9h-Oa-tLV" id="iBv-Tk-hG7"/>
