@@ -18,15 +18,17 @@ protocol SearchHistoryViewModelInterface {
 
 final class SearchHistoryViewModel {
     private weak var view: SearchHistoryViewInterface?
+    private let coreDataManager: CoreDataManagerInterface
 
-    init(view: SearchHistoryViewInterface) {
+    init(view: SearchHistoryViewInterface, coreDataManager: CoreDataManagerInterface = CoreDataManager.shared) {
         self.view = view
+        self.coreDataManager = coreDataManager
     }
 }
 
 extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
     var searchHistory: [String] {
-        CoreDataManager.shared.fetchUniqueUserNames()
+        coreDataManager.fetchUniqueUserNames()
     }
 
     var numberOfRowsInSection: Int {

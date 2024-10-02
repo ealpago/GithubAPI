@@ -27,7 +27,7 @@ final class SearchViewModel {
     private weak var view: SearchViewInterface?
     private let coreDataManager: CoreDataManagerInterface
 
-    init(view: SearchViewInterface?, coreDataManager: CoreDataManagerInterface = CoreDataManager.shared ) {
+    init(view: SearchViewInterface?, coreDataManager: CoreDataManagerInterface = CoreDataManager.shared) {
         self.view = view
         self.coreDataManager = coreDataManager
     }

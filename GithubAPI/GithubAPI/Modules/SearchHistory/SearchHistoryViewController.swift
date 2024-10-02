@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SearchHistoryViewInterface: AnyObject, AlertPresentable, ProgressIndicatorPresentable {
+protocol SearchHistoryViewInterface: AlertPresentable, ProgressIndicatorPresentable {
     func prepareTableView()
     func reloadData()
     func pushVC(userName: String)
