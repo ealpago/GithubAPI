@@ -51,11 +51,11 @@ final class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing() {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         viewModel.searchBarDidBeginEditing()
     }
 
-    func searchBarSearchButtonClicked() {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.searchBarEndEditing(text: userName)
     }
 }
@@ -95,7 +95,7 @@ extension SearchViewController: SearchViewInterface {
 
     func pushVC() {
         if let vc = Constants.listingStoryboardFileName.viewController(identifier: ListingViewController.identifier) as? ListingViewController {
-            vc.arguments = ListingViewArguments(userName: userName)
+            vc.viewModel = ListingViewModel(view: vc, arguments: ListingViewArguments(userName: userName))
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

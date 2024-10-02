@@ -45,7 +45,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="searchButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cFL-hX-6qd"/>
+                                            <action selector="searchButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4XT-Il-1vd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -54,7 +54,6 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0ds-Eb-iOB" secondAttribute="bottom" constant="24" id="1Qp-3h-wi6"/>
                             <constraint firstItem="0ds-Eb-iOB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="7Tv-m4-uFU"/>
                             <constraint firstItem="0ds-Eb-iOB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="H92-T7-IrL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0ds-Eb-iOB" secondAttribute="trailing" constant="24" id="gTw-XW-KJr"/>
