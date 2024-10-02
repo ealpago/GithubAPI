@@ -8,11 +8,9 @@
 import Foundation
 
 protocol ListingViewModelInterface {
-    var view: ListingViewInterface? { get set }
-    var numberOfRowsInSection: Int { get }
+    var numberOfItemsInSection: Int { get }
 
     func viewDidLoad()
-    func beginPagination(user: String, page: Int)
     func changeUI()
     func sortByStar()
     func sortByCreatedDate()
@@ -20,6 +18,11 @@ protocol ListingViewModelInterface {
     func clearSorting()
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize
     func cellForItem(at item: Int) -> String
+    func willDisplay(at index: Int)
+}
+
+struct ListingViewArguments {
+    var userName: String?
 }
 
 enum SortedCases {
@@ -30,47 +33,66 @@ enum SortedCases {
 }
 
 final class ListingViewModel {
-    weak var view: ListingViewInterface?
+    private weak var view: ListingViewInterface?
     private var repos: [GitHubRepo] = []
     private var sortedRepos: [GitHubRepo] = []
     private var itemsPerRow = 1
+    private var isFetching = false
+    private var currentPage = 1
+    private var totalPages = 1
     private var selectedSortCase: SortedCases?
+    private var networkManager: NetworkManager
+    private var arguments: ListingViewArguments
 
-    private func getRepos(user: String, page: Int) {
+    init(view: ListingViewInterface, arguments: ListingViewArguments, networkManager: NetworkManager = NetworkManager.shared){
+        self.view = view
+        self.arguments = arguments
+        self.networkManager = networkManager
+    }
+
+    private func getUserRepos(user: String, page: Int) {
+        self.isFetching = true
         view?.showLoadingIndicator()
-        ReposStoreManager.shared.fetchRepos(user: user, page: page) { [weak self] result in
+        networkManager.request(requestRoute: NetworkRouter.userRepos(user: user, page: page), responseModel: [GitHubRepo].self) { [weak self] result in
             guard let self = self else { return }
-            view?.hideLoadingIndicator()
+            self.view?.hideLoadingIndicator()
             switch result {
             case .success(let repos):
-                DispatchQueue.main.async {
-                    self.repos = repos
-                    self.sortedRepos = repos
-                    self.view?.reloadData()
-                }
+                self.repos.append(contentsOf: repos)
+                self.sortedRepos.append(contentsOf: repos)
+                self.view?.reloadData()
+                self.isFetching = false
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self.view?.showError(title: "Error", message: error.localizedDescription, buttonTitle: "OK", completion: {
-                        self.view?.popToRoot()
-                    })
-                }
+                self.view?.showError(title: "Error", message: error.localizedDescription, buttonTitle: "OK", completion: {
+                    self.isFetching = false
+                    self.view?.popToRoot()
+                })
             }
         }
     }}
 
 extension ListingViewModel: ListingViewModelInterface {
+    var numberOfItemsInSection: Int {
+        sortedRepos.count
+    }
+
+    func viewDidLoad() {
+        view?.prepareTableView()
+        view?.setupCollectionViewLayout(itemsPerRow: 1)
+        getUserRepos(user: arguments.userName ?? "", page: 1)
+    }
+
     func clearSorting() {
         sortedRepos = repos
         selectedSortCase = .clean
-        self.view?.scrollToItem()
-        self.view?.reloadData()
+        view?.scrollToItem()
+        view?.reloadData()
     }
-    
+
     func cellForItem(at item: Int) -> String {
-        guard let name = sortedRepos[item].name else { return "" }
-        return name
+        sortedRepos[item].name ?? ""
     }
-    
+
     func collectionViewLayout(width: CGFloat, minimumSpacing: CGFloat, columns: Int) -> CGSize {
         let spaceBetweenCells = minimumSpacing * (CGFloat(columns) - 1)
         let adjustedWidth = width - spaceBetweenCells
@@ -78,22 +100,12 @@ extension ListingViewModel: ListingViewModelInterface {
         let height: CGFloat = width * 2
         return CGSize(width: width, height: height)
     }
-    
+
     func changeUI() {
         itemsPerRow = itemsPerRow >= 3 ? 1 : itemsPerRow + 1
-        self.view?.setupCollectionViewLayout(itemsPerRow: itemsPerRow)
-        self.view?.scrollToItem()
+        view?.setupCollectionViewLayout(itemsPerRow: itemsPerRow)
+        view?.scrollToItem()
         self.view?.reloadData()
-    }
-    
-    var numberOfRowsInSection: Int {
-        sortedRepos.count
-    }
-
-    func viewDidLoad() {
-        self.view?.prepareTableView()
-        self.view?.setupCollectionViewLayout(itemsPerRow: 1)
-        self.getRepos(user: view?.userName ?? "", page: 1)
     }
 
     func sortByStar() {
@@ -108,10 +120,10 @@ extension ListingViewModel: ListingViewModelInterface {
             }
             return starOne > starTwo
         }
-        self.view?.scrollToItem()
-        self.view?.reloadData()
+        view?.scrollToItem()
+        view?.reloadData()
     }
-    
+
     func sortByCreatedDate() {
         guard selectedSortCase != .sortByDate else {
             clearSorting()
@@ -124,10 +136,10 @@ extension ListingViewModel: ListingViewModelInterface {
             }
             return dateOne > dateTwo
         }
-        self.view?.scrollToItem()
-        self.view?.reloadData()
+        view?.scrollToItem()
+        view?.reloadData()
     }
-    
+
     func sortByUpdatedDate() {
         guard selectedSortCase != .sortByUpdate else {
             clearSorting()
@@ -140,11 +152,14 @@ extension ListingViewModel: ListingViewModelInterface {
             }
             return dateOne > dateTwo
         }
-        self.view?.scrollToItem()
-        self.view?.reloadData()
+        view?.scrollToItem()
+        view?.reloadData()
     }
 
-    func beginPagination(user: String, page: Int) {
-        self.getRepos(user: view?.userName ?? "", page: page)
+    func willDisplay(at index: Int) {
+        if sortedRepos.count % 10 == 0, index == sortedRepos.count - 1, !isFetching {
+            currentPage += 1
+            getUserRepos(user: arguments.userName ?? "", page: currentPage)
+        }
     }
 }

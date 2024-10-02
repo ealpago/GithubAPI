@@ -28,7 +28,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Change Layout"/>
                                         <connections>
-                                            <action selector="changeUIButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iGr-1v-7WA"/>
+                                            <action selector="changeUIButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jD2-cc-twS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9h-Oa-tLV">
@@ -38,7 +38,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sort by Star"/>
                                         <connections>
-                                            <action selector="sortByStarButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CEb-uC-wmu"/>
+                                            <action selector="sortByStarButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KiF-ZO-7QB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXJ-74-fte">
@@ -48,7 +48,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sort by Created Date"/>
                                         <connections>
-                                            <action selector="sortByCreatedDateButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="a2h-Ao-mee"/>
+                                            <action selector="sortByCreatedDateButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lir-De-XnT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63Q-m7-AfH">
@@ -58,12 +58,12 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sort by Updated Date"/>
                                         <connections>
-                                            <action selector="sortByUpdatedDateButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Y18-5r-5o6"/>
+                                            <action selector="sortByUpdatedDateButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5Ol-8F-yLR"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SwE-EA-uMz">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SwE-EA-uMz">
                                 <rect key="frame" x="12" y="185.33333333333331" width="369" height="620.66666666666674"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OOy-tn-Bis">
@@ -89,7 +89,6 @@
                     </view>
                     <connections>
                         <outlet property="buttonsStackView" destination="uWi-9A-nME" id="TOk-dq-rUT"/>
-                        <outlet property="changeUIButton" destination="AkB-qL-gc0" id="eSM-7b-o6u"/>
                         <outlet property="repoCollectionView" destination="SwE-EA-uMz" id="Fo1-Zm-FAO"/>
                         <outlet property="sortByCreatedDateButton" destination="63Q-m7-AfH" id="RZo-Cq-bu0"/>
                         <outlet property="sortByStarButton" destination="R9h-Oa-tLV" id="iBv-Tk-hG7"/>
