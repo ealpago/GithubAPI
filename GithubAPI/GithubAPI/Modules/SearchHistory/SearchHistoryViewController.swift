@@ -17,11 +17,10 @@ final class SearchHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private lazy var viewModel = SearchHistoryViewModel()
+    private lazy var viewModel = SearchHistoryViewModel(view: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
 }
@@ -32,7 +31,6 @@ extension SearchHistoryViewController: UITableViewDelegate {
     }
 }
 
-//Defible
 extension SearchHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchHistoryTableViewCell.identifier, for: indexPath) as? SearchHistoryTableViewCell else { return UITableViewCell() }
@@ -60,7 +58,7 @@ extension SearchHistoryViewController: SearchHistoryViewInterface {
     
     func pushVC(userName: String) {
         if let vc = "ListingStoryboard".viewController(identifier: ListingViewController.identifier) as? ListingViewController {
-            vc.arguments = ListingViewArguments(userName: userName)
+            vc.viewModel = ListingViewModel(view: vc, arguments: ListingViewArguments(userName: userName))
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
