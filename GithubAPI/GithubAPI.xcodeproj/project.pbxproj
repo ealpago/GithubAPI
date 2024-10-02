@@ -14,6 +14,7 @@
 		D11140FE2CADE346008ADE4A /* MockSearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140FD2CADE346008ADE4A /* MockSearchHistoryViewController.swift */; };
 		D11141002CADF118008ADE4A /* ListingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140FF2CADF118008ADE4A /* ListingViewModelTest.swift */; };
 		D11141022CADF128008ADE4A /* MockListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11141012CADF128008ADE4A /* MockListingViewController.swift */; };
+		D11141042CADF377008ADE4A /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11141032CADF377008ADE4A /* MockNetworkManager.swift */; };
 		D18917322CA5BDB2009C399C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917312CA5BDB2009C399C /* AppDelegate.swift */; };
 		D18917342CA5BDB2009C399C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917332CA5BDB2009C399C /* SceneDelegate.swift */; };
 		D189173C2CA5BDB2009C399C /* GithubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D189173A2CA5BDB2009C399C /* GithubAPI.xcdatamodeld */; };
@@ -75,6 +76,7 @@
 		D11140FD2CADE346008ADE4A /* MockSearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchHistoryViewController.swift; sourceTree = "<group>"; };
 		D11140FF2CADF118008ADE4A /* ListingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModelTest.swift; sourceTree = "<group>"; };
 		D11141012CADF128008ADE4A /* MockListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListingViewController.swift; sourceTree = "<group>"; };
+		D11141032CADF377008ADE4A /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		D189172E2CA5BDB2009C399C /* GithubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18917312CA5BDB2009C399C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D18917332CA5BDB2009C399C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D11140F72CAD8E1E008ADE4A /* MockCoreDataManager.swift */,
+				D11141032CADF377008ADE4A /* MockNetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				D11140F82CAD8E1E008ADE4A /* MockCoreDataManager.swift in Sources */,
 				D11141022CADF128008ADE4A /* MockListingViewController.swift in Sources */,
 				D11140FA2CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift in Sources */,
+				D11141042CADF377008ADE4A /* MockNetworkManager.swift in Sources */,
 				D11140FE2CADE346008ADE4A /* MockSearchHistoryViewController.swift in Sources */,
 				D11140F32CAD89F9008ADE4A /* SearchViewModelTest.swift in Sources */,
 				D11140F52CAD8A0D008ADE4A /* MockSearchViewController.swift in Sources */,
