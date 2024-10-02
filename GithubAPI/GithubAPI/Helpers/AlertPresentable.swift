@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AlertPresentable {
+protocol AlertPresentable: AnyObject {
     func showError(title: String, message: String, buttonTitle: String, completion: @escaping()->())
 }
 
