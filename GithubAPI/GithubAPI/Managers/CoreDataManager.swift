@@ -24,7 +24,7 @@ class CoreDataManager {
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
+
     func saveUser(userName: String) {
         let user = Users(context: context)
         user.userName = userName
