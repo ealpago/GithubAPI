@@ -8,8 +8,6 @@
 import Foundation
 
 protocol SearchViewModelInterface {
-    var view: SearchViewInterface? { get set }
-
     func viewDidLoad()
     func checkButtonValidation()
     func searchBarDidBeginEditing()
@@ -17,32 +15,44 @@ protocol SearchViewModelInterface {
     func searchButtonTapped()
 }
 
+extension SearchViewModel {
+    enum Constants {
+        static let errorTitle = "Warning"
+        static let errorMessage = "Search query is empty"
+        static let erroButtonTitle = "OK"
+    }
+}
+
 final class SearchViewModel {
-   weak var view: SearchViewInterface?
+    private weak var view: SearchViewInterface?
+
+    init(view: SearchViewInterface?) {
+        self.view = view
+    }
 }
 
 extension SearchViewModel: SearchViewModelInterface {
     func searchBarDidBeginEditing() {
-        self.view?.buttonUntouchable()
+        view?.buttonUntouchable()
     }
 
     func searchBarEndEditing(text: String) {
         guard !text.isEmpty else {
-            self.view?.buttonDeactive()
-            self.view?.buttonUntouchable()
-            self.view?.dismissKeyboard()
+            view?.buttonDeactive()
+            view?.buttonUntouchable()
+            view?.dismissKeyboard()
             return
         }
-        self.view?.buttonActive()
-        self.view?.buttonTouchable()
-        self.view?.dismissKeyboard()
+        view?.buttonActive()
+        view?.buttonTouchable()
+        view?.dismissKeyboard()
     }
 
     func viewDidLoad() {
         view?.prepareUI()
         view?.buttonDeactive()
     }
-    
+
     func checkButtonValidation() {
         guard let isValid = view?.isValid, isValid else {
             view?.buttonDeactive()
@@ -53,10 +63,10 @@ extension SearchViewModel: SearchViewModelInterface {
 
     func searchButtonTapped() {
         guard let userName = view?.userName, !userName.isEmpty else {
-            print("Search query is empty")
+            view?.showError(title: Constants.errorTitle, message: Constants.errorMessage, buttonTitle: Constants.erroButtonTitle, completion: {})
             return
         }
         CoreDataManager.shared.saveUser(userName: userName)
-        self.view?.pushVC()
+        view?.pushVC()
     }
 }

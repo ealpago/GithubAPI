@@ -23,7 +23,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZMS-dY-JBK">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="yZw-g9-kSh"/>
+                                            <constraint firstAttribute="height" constant="200" id="6y4-lA-LV5"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search GitHub Repositories by User Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bU-d7-nox">
@@ -54,6 +54,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0ds-Eb-iOB" secondAttribute="bottom" constant="24" id="1Qp-3h-wi6"/>
                             <constraint firstItem="0ds-Eb-iOB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="7Tv-m4-uFU"/>
                             <constraint firstItem="0ds-Eb-iOB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="H92-T7-IrL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0ds-Eb-iOB" secondAttribute="trailing" constant="24" id="gTw-XW-KJr"/>

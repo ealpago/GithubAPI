@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-protocol SearchViewInterface: AnyObject, AlertPresentable {
+protocol SearchViewInterface: AlertPresentable {
     var isValid: Bool { get }
     var userName: String { get }
 
@@ -18,8 +18,13 @@ protocol SearchViewInterface: AnyObject, AlertPresentable {
     func buttonTouchable()
     func buttonUntouchable()
     func pushVC()
-    func showAlert()
     func dismissKeyboard()
+}
+
+extension SearchViewController {
+    enum Constants {
+        static let listingStoryboardFileName = "ListingStoryboard"
+    }
 }
 
 final class SearchViewController: UIViewController {
@@ -31,36 +36,33 @@ final class SearchViewController: UIViewController {
     @IBOutlet private weak var searchButton: UIButton!
 
     //MARK: Properties
-    private lazy var viewModel = SearchViewModel()
+    private lazy var viewModel = SearchViewModel(view: self)
 
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
 
     //MARK: Actions
-    @IBAction private func searchButtonTapped(_ sender: UIButton) {
+    @IBAction private func searchButtonTapped() {
         viewModel.searchButtonTapped()
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing() {
         viewModel.searchBarDidBeginEditing()
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked() {
         viewModel.searchBarEndEditing(text: userName)
     }
 }
 
 extension SearchViewController: SearchViewInterface {
     var userName: String {
-        get {
-            return userSearchBar.text ?? ""
-        }
+        userSearchBar.text ?? ""
     }
 
     var isValid: Bool { userSearchBar.text != nil }
@@ -78,7 +80,7 @@ extension SearchViewController: SearchViewInterface {
     func buttonActive() {
         searchButton.isEnabled = true
     }
-    
+
     func buttonTouchable() {
         searchButton.isUserInteractionEnabled = true
     }
@@ -87,16 +89,12 @@ extension SearchViewController: SearchViewInterface {
         searchButton.isUserInteractionEnabled = false
     }
 
-    func showAlert() {
-        showError(title: "", message: "", buttonTitle: "") {}
-    }
-
     func dismissKeyboard() {
         userSearchBar.resignFirstResponder()
     }
 
     func pushVC() {
-        if let vc = "ListingStoryboard".viewController(identifier: ListingViewController.identifier) as? ListingViewController {
+        if let vc = Constants.listingStoryboardFileName.viewController(identifier: ListingViewController.identifier) as? ListingViewController {
             vc.arguments = ListingViewArguments(userName: userName)
             self.navigationController?.pushViewController(vc, animated: true)
         }
