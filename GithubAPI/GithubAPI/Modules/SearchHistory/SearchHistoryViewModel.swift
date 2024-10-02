@@ -17,7 +17,11 @@ protocol SearchHistoryViewModelInterface {
 }
 
 final class SearchHistoryViewModel {
-    weak var view: SearchHistoryViewInterface?
+    private weak var view: SearchHistoryViewInterface?
+
+    init(view: SearchHistoryViewInterface) {
+        self.view = view
+    }
 }
 
 extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
@@ -41,6 +45,6 @@ extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
 
     func didSelectRow(at item: Int) {
         let userName = searchHistory[item]
-        self.view?.pushVC(userName: userName)
+        view?.pushVC(userName: userName)
     }
 }
