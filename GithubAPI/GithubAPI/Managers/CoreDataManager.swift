@@ -8,7 +8,14 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+protocol CoreDataManagerInterface {
+    var context: NSManagedObjectContext { get }
+    var persistentContainer: NSPersistentContainer { get }
+    func saveUser(userName: String)
+    func fetchUniqueUserNames() -> [String]
+}
+
+class CoreDataManager: CoreDataManagerInterface {
     static let shared = CoreDataManager()
 
     lazy var persistentContainer: NSPersistentContainer = {
