@@ -38,7 +38,11 @@ enum NetworkError: Error {
     case decodingError(Error)
 }
 
-class NetworkManager {
+protocol NetworkManagerInterface {
+    func request<T: Codable>(requestRoute: NetworkRouter, responseModel: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void)
+}
+
+class NetworkManager: NetworkManagerInterface {
     static let shared = NetworkManager(session: URLSession(configuration: .default))
     private let session: URLSession
 
