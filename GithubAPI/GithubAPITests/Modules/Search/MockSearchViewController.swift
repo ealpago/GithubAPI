@@ -71,7 +71,6 @@ final class MockSearchViewController: SearchViewInterface {
 
     var invokedPushVC = false
     var invokedPushVCCount = 0
-
     func pushVC() {
         invokedPushVC = true
         invokedPushVCCount += 1
