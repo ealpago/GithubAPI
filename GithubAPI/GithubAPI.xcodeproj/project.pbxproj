@@ -10,6 +10,8 @@
 		D11140F32CAD89F9008ADE4A /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140F22CAD89F9008ADE4A /* SearchViewModelTest.swift */; };
 		D11140F52CAD8A0D008ADE4A /* MockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140F42CAD8A0D008ADE4A /* MockSearchViewController.swift */; };
 		D11140F82CAD8E1E008ADE4A /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140F72CAD8E1E008ADE4A /* MockCoreDataManager.swift */; };
+		D11140FA2CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140F92CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift */; };
+		D11140FE2CADE346008ADE4A /* MockSearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11140FD2CADE346008ADE4A /* MockSearchHistoryViewController.swift */; };
 		D18917322CA5BDB2009C399C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917312CA5BDB2009C399C /* AppDelegate.swift */; };
 		D18917342CA5BDB2009C399C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18917332CA5BDB2009C399C /* SceneDelegate.swift */; };
 		D189173C2CA5BDB2009C399C /* GithubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D189173A2CA5BDB2009C399C /* GithubAPI.xcdatamodeld */; };
@@ -67,6 +69,8 @@
 		D11140F22CAD89F9008ADE4A /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		D11140F42CAD8A0D008ADE4A /* MockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchViewController.swift; sourceTree = "<group>"; };
 		D11140F72CAD8E1E008ADE4A /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataManager.swift; sourceTree = "<group>"; };
+		D11140F92CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModelTest.swift; sourceTree = "<group>"; };
+		D11140FD2CADE346008ADE4A /* MockSearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchHistoryViewController.swift; sourceTree = "<group>"; };
 		D189172E2CA5BDB2009C399C /* GithubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18917312CA5BDB2009C399C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D18917332CA5BDB2009C399C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		D11140F02CAD8783008ADE4A /* SearchHistory */ = {
 			isa = PBXGroup;
 			children = (
+				D11140F92CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift */,
+				D11140FD2CADE346008ADE4A /* MockSearchHistoryViewController.swift */,
 			);
 			path = SearchHistory;
 			sourceTree = "<group>";
@@ -200,7 +206,6 @@
 				D1E17B062CA83B1000F228A9 /* Extensions */,
 				D18917782CA5E3D4009C399C /* Managers */,
 				D189176A2CA5BF10009C399C /* Resources */,
-				D18917682CA5BF05009C399C /* Views */,
 				D18917672CA5BF01009C399C /* Models */,
 				D18917662CA5BEE9009C399C /* Modules */,
 				D189173D2CA5BDB5009C399C /* Assets.xcassets */,
@@ -249,13 +254,6 @@
 				D18917762CA5E275009C399C /* License.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D18917682CA5BF05009C399C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		D189176A2CA5BF10009C399C /* Resources */ = {
@@ -522,6 +520,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11140F82CAD8E1E008ADE4A /* MockCoreDataManager.swift in Sources */,
+				D11140FA2CADB0BE008ADE4A /* SearchHistoryViewModelTest.swift in Sources */,
+				D11140FE2CADE346008ADE4A /* MockSearchHistoryViewController.swift in Sources */,
 				D11140F32CAD89F9008ADE4A /* SearchViewModelTest.swift in Sources */,
 				D11140F52CAD8A0D008ADE4A /* MockSearchViewController.swift in Sources */,
 				D189174C2CA5BDB5009C399C /* GithubAPITests.swift in Sources */,
