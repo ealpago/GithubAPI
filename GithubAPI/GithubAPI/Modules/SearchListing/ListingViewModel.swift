@@ -105,7 +105,7 @@ extension ListingViewModel: ListingViewModelInterface {
         itemsPerRow = itemsPerRow >= 3 ? 1 : itemsPerRow + 1
         view?.setupCollectionViewLayout(itemsPerRow: itemsPerRow)
         view?.scrollToItem()
-        self.view?.reloadData()
+        view?.reloadData()
     }
 
     func sortByStar() {

@@ -52,4 +52,28 @@ final class ListingViewModelTest: XCTest {
         XCTAssertTrue(view.invokedScrollToItem)
         XCTAssertTrue(view.invokedReloadData)
     }
+
+    func test_CellForItem() {
+        let mockedSortedRepos = ["Alice", "Bob", "Charlie"]
+
+        let item0 = viewModel.cellForItem(at: 0)
+        let item1 = viewModel.cellForItem(at: 1)
+        let item2 = viewModel.cellForItem(at: 2)
+
+        XCTAssertEqual(item0, viewModel.cellForItem(at: 0))
+        XCTAssertEqual(item1, viewModel.cellForItem(at: 1))
+        XCTAssertEqual(item2, viewModel.cellForItem(at: 2))
+    }
+
+    func test_ChangeUI() {
+        XCTAssertFalse(view.invokedSetupCollectionViewLayout)
+        XCTAssertFalse(view.invokedScrollToItem)
+        XCTAssertFalse(view.invokedReloadData)
+
+        viewModel.changeUI()
+
+        XCTAssertTrue(view.invokedSetupCollectionViewLayout)
+        XCTAssertTrue(view.invokedScrollToItem)
+        XCTAssertTrue(view.invokedReloadData)
+    }
 }
