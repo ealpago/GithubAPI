@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: ListingViewInterface
 protocol ListingViewInterface: AlertPresentable, ProgressIndicatorPresentable {
     func prepareTableView()
     func reloadData()
@@ -16,6 +17,7 @@ protocol ListingViewInterface: AlertPresentable, ProgressIndicatorPresentable {
     func scrollToItem()
 }
 
+//MARK: ListingViewController
 final class ListingViewController: UIViewController {
     @IBOutlet private weak var buttonsStackView: UIStackView!
     @IBOutlet private weak var changeUIButton: UIButton!
@@ -48,6 +50,7 @@ final class ListingViewController: UIViewController {
     }
 }
 
+//MARK: UICollectionViewDataSource
 extension ListingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.numberOfItemsInSection
@@ -60,6 +63,7 @@ extension ListingViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK: UICollectionViewDelegate
 extension ListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         print("Displaying item at indexPath: \(indexPath.item)")
@@ -67,6 +71,7 @@ extension ListingViewController: UICollectionViewDelegate {
     }
 }
 
+//MARK: ListingViewInterfaceExtension
 extension ListingViewController: ListingViewInterface {
     func scrollToItem() {
         let firstIndexPath = IndexPath(item: 0, section: 0)

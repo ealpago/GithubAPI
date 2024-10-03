@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: ListingViewModelInterface
 protocol ListingViewModelInterface {
     var numberOfItemsInSection: Int { get }
 
@@ -21,10 +22,12 @@ protocol ListingViewModelInterface {
     func willDisplay(at index: Int)
 }
 
+//MARK: ListingViewArguments
 struct ListingViewArguments {
     var userName: String?
 }
 
+//MARK: SortedCases
 enum SortedCases {
     case sortByStar
     case sortByDate
@@ -32,6 +35,7 @@ enum SortedCases {
     case clean
 }
 
+//MARK: ListingViewModel
 final class ListingViewModel {
     private weak var view: ListingViewInterface?
     private var repos: [GitHubRepo] = []
@@ -71,6 +75,7 @@ final class ListingViewModel {
         }
     }}
 
+//MARK: ListingViewModelInterfaceExtension
 extension ListingViewModel: ListingViewModelInterface {
     var numberOfItemsInSection: Int {
         sortedRepos.count
