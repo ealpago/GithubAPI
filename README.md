@@ -22,15 +22,15 @@ The **GitHubAPI** Project is an iOS application designed to fetch and display us
 - **Core Data**: Used for local data storage and offline access.
 - **XCTest**: Framework used for unit testing.
 - **GitHub API**: The API that provides data for the application.
-- 
+
 ## Design and Architecture
 
 - **OOP and POP (Protocol-Oriented Programming)**
---- The project leverages both Object-Oriented Programming (OOP) and Protocol-Oriented Programming (POP):
+- The project leverages both Object-Oriented Programming (OOP) and Protocol-Oriented Programming (POP):
 
----OOP: The app's structure follows classic object-oriented principles like encapsulation and inheritance, making the codebase modular and easy to maintain.
+- OOP: The app's structure follows classic object-oriented principles like encapsulation and inheritance, making the codebase modular and easy to maintain.
 
----POP: Protocols define the essential behaviors of different components, making the system flexible and promoting code reuse.
+- OP: Protocols define the essential behaviors of different components, making the system flexible and promoting code reuse.
 
 - **SOLID Principles**
 ---The app adheres to the SOLID design principles:
