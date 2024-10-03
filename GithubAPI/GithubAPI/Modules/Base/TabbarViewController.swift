@@ -7,21 +7,34 @@
 
 import UIKit
 
+extension TabbarViewController {
+    enum Constants {
+        static let searchStoryboardFileName = "SearchStoryboard"
+        static let searchNavBar = "SearchNavBar"
+        static let searchHistoryStoryboardFileName = "SearchHistoryStoryboard"
+        static let searchHistoryNavBar = "SearchHistoryNavBar"
+        static let searchVCTabbarImage = "magnifyingglass"
+        static let searchHistoryVCTabbarImage = "clock.fill"
+        static let searchVCTitle = "Home"
+        static let searchHistoryVCTitle = "Search History"
+    }
+}
+
 class TabbarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let searchStoryboard = UIStoryboard(name: "SearchStoryboard", bundle: nil)
-        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: "SearchNavBar")
+        let searchStoryboard = UIStoryboard(name: Constants.searchStoryboardFileName, bundle: nil)
+        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: Constants.searchNavBar)
 
-        let searchHistoryStoryboard = UIStoryboard(name: "SearchHistoryStoryboard", bundle: nil)
-        let searchHistoryVC = searchHistoryStoryboard.instantiateViewController(withIdentifier: "SearchHistoryNavBar")
+        let searchHistoryStoryboard = UIStoryboard(name: Constants.searchHistoryStoryboardFileName, bundle: nil)
+        let searchHistoryVC = searchHistoryStoryboard.instantiateViewController(withIdentifier: Constants.searchHistoryNavBar)
 
-        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        searchHistoryVC.tabBarItem.image = UIImage(systemName: "clock.fill")
+        searchVC.tabBarItem.image = UIImage(systemName: Constants.searchVCTabbarImage)
+        searchHistoryVC.tabBarItem.image = UIImage(systemName: Constants.searchHistoryVCTabbarImage)
 
-        searchVC.title = "Home"
-        searchHistoryVC.title = "Coming Soon"
+        searchVC.title = Constants.searchVCTitle
+        searchHistoryVC.title = Constants.searchHistoryVCTitle
 
         tabBar.tintColor = .label
 
