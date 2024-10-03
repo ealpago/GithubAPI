@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: SearchHistoryViewModelInterface
 protocol SearchHistoryViewModelInterface {
     var searchHistory: [String] { get }
     var numberOfRowsInSection: Int { get }
@@ -16,6 +17,7 @@ protocol SearchHistoryViewModelInterface {
     func cellForItem(at item: Int) -> String
 }
 
+//MARK: SearchHistoryViewModel
 final class SearchHistoryViewModel {
     private weak var view: SearchHistoryViewInterface?
     private let coreDataManager: CoreDataManagerInterface
@@ -26,6 +28,7 @@ final class SearchHistoryViewModel {
     }
 }
 
+//MARK: SearchHistoryViewModelInterfaceExtension
 extension SearchHistoryViewModel: SearchHistoryViewModelInterface {
     var searchHistory: [String] {
         coreDataManager.fetchUniqueUserNames()

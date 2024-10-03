@@ -7,12 +7,14 @@
 
 import UIKit
 
+//MARK: SearchHistoryViewInterface
 protocol SearchHistoryViewInterface: AlertPresentable, ProgressIndicatorPresentable {
     func prepareTableView()
     func reloadData()
     func pushVC(userName: String)
 }
 
+//MARK: SearchHistoryViewController
 final class SearchHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
@@ -25,12 +27,14 @@ final class SearchHistoryViewController: UIViewController {
     }
 }
 
+//MARK: UITableViewDelegate
 extension SearchHistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRowsInSection
     }
 }
 
+//MARK: UITableViewDataSource
 extension SearchHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchHistoryTableViewCell.identifier, for: indexPath) as? SearchHistoryTableViewCell else { return UITableViewCell() }
@@ -43,6 +47,7 @@ extension SearchHistoryViewController: UITableViewDataSource {
     }
 }
 
+//MARK: SearchHistoryViewInterface
 extension SearchHistoryViewController: SearchHistoryViewInterface {
     func reloadData() {
         DispatchQueue.main.async {
