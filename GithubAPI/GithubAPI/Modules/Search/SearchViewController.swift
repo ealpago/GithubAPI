@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+//MARK: SearchViewInterface
 protocol SearchViewInterface: AlertPresentable {
     var isValid: Bool { get }
     var userName: String { get }
@@ -21,12 +22,14 @@ protocol SearchViewInterface: AlertPresentable {
     func dismissKeyboard()
 }
 
+//MARK: SearchViewControllerExtension
 extension SearchViewController {
     enum Constants {
         static let listingStoryboardFileName = "ListingStoryboard"
     }
 }
 
+//MARK: SearchViewController
 final class SearchViewController: UIViewController {
 
     //MARK: Outlets
@@ -50,6 +53,7 @@ final class SearchViewController: UIViewController {
     }
 }
 
+//MARK: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         viewModel.searchBarDidBeginEditing()
@@ -60,6 +64,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: SearchViewInterfaceExtension
 extension SearchViewController: SearchViewInterface {
     var userName: String {
         userSearchBar.text ?? ""

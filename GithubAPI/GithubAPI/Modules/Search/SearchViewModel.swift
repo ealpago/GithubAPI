@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: SearchViewModelInterface
 protocol SearchViewModelInterface {
     func viewDidLoad()
     func searchButtonTapped()
@@ -15,6 +16,7 @@ protocol SearchViewModelInterface {
     func checkButtonValidation()
 }
 
+//MARK: SearchViewModelExtension
 extension SearchViewModel {
     enum Constants {
         static let errorTitle = "Warning"
@@ -23,6 +25,7 @@ extension SearchViewModel {
     }
 }
 
+//MARK: SearchViewModel
 final class SearchViewModel {
     private weak var view: SearchViewInterface?
     private let coreDataManager: CoreDataManagerInterface
@@ -33,6 +36,7 @@ final class SearchViewModel {
     }
 }
 
+//MARK: SearchViewModelInterfaceExtension
 extension SearchViewModel: SearchViewModelInterface {
     func viewDidLoad() {
         view?.prepareUI()
