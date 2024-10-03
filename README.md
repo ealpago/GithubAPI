@@ -26,7 +26,7 @@ The **GitHubAPI** Project is an iOS application designed to fetch and display us
 ## Design and Architecture
 
 - **OOP and POP (Protocol-Oriented Programming)**
----The project leverages both Object-Oriented Programming (OOP) and Protocol-Oriented Programming (POP):
+--- The project leverages both Object-Oriented Programming (OOP) and Protocol-Oriented Programming (POP):
 
 ---OOP: The app's structure follows classic object-oriented principles like encapsulation and inheritance, making the codebase modular and easy to maintain.
 
